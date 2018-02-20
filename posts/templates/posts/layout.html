@@ -5,12 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- BOOTSTRAP -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'posts/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'posts/style.css' %}">
     <title>Project 4</title>
 </head>
 <body>
-    <header class="container text-center">
-        <h1>Project 4 Blog</h1>
+    <header class="container">
+        <h1 class="text-center">Project 4 Blog</h1>
     </header>
     <div class="container">
         {% block content %}

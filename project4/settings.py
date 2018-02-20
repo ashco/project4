@@ -73,7 +73,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'project4db',
-            'HOST': 'localhost'
+        'HOST': 'localhost'
     }
 }
 
@@ -111,7 +111,13 @@ USE_L10N = True
 USE_TZ = True
 
 
+# Media files 
+ENV_PATH = os.path.abspath(os.path.dirname(__file__))
+MEDIA_ROOT = os.path.join(ENV_PATH, 'media/')
+MEDIA_URL = '/media/'
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
+
 
 STATIC_URL = '/static/'

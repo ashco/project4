@@ -1,21 +1,26 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
+from django.utils import timezone
+
+# MODELS
 from .models import Post
+
+
 
 def index(request):
     # return HttpResponse('Hello from posts')
 
-    all_posts = Post.objects.all()[:10] # get first 10 posts
+    # get last 10 posts, (not including those set to be published in the future)
+    # get_queryset = Post.objects.all()[:10] 
+    get_queryset = Post.objects.filter(
+        created_at__lte=timezone.now()
+    ).order_by('-created_at')[:10]
 
     context = {
         'title': 'Latest Posts',
-        'posts': all_posts
+        'posts': get_queryset
     }
-
-    # return render(request, 'posts/index.html', {
-    #     'title': 'Latest Posts'
-    # })
     
     return render(request, 'posts/index.html', context)
 
